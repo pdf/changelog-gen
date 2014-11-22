@@ -326,7 +326,7 @@ parse_raw_commit = function(raw) {
     return find_fixes(line, msg);
   });
   msg.body = lines.join("\n");
-  breaking_regexp = /BREAKING CHANGE:([\s\S]*)/;
+  breaking_regexp = /(?:BREAKING CHANGE|:warning):([\s\S]*)/;
   match = msg.body.match(breaking_regexp);
   if (match) {
     msg.breaking = match[1];
